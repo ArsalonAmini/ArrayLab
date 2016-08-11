@@ -9,36 +9,37 @@ namespace BaseballArray
     class Slug
     {
         public int playerSlug { get; private set; }
-        int single;
-        int doubles;
-        int triple;
-        int home;
-        int batNumber;
+        double single;
+        double doubles;
+        double triple;
+        double home;
+        double batNumber;
+        double calculateSlugg;
 
-        //user input stats
-        Console.WriteLine("Please input single's statistics");
-            single = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Please input doubles statistics");
-            doubles = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Please input triple statistics");
-            triple = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Please input home run statistics");
-            home = Convert.ToInt32(Console.ReadLine()); }
-            Console.WriteLine("Please input bat number");
-            bat = Convert.ToInt32(Console.ReadLine());
+        public Slug(double single, double doubles, double triple, double home, double batNumber) //constructor
+        {
+            this.single = single;
+            this.doubles = doubles;
+            this.triple = triple;
+            this.home = home;
+            this.batNumber = batNumber;
 
-    public void StatArray(int single, int doubles, int triple, int home, int bat)
-    {
+        }
 
-        int[] statArray = { single, doubles, triple, home, bat};
-        Console.WriteLine(statArray);
+        public double[] StoreStat(double single, double doubles, double triple, double home, double batNumber) //store userinput into an array
+        {
+
+            double[] scoreStat = new double[] { single, doubles, triple, home, batNumber }; //Array 
+            return scoreStat;
+
+        }
+
+        public void CalculateSlugg(double[] storeStat) //Pass array into calculateSlugg 
+        {
+            calculateSlugg = (storeStat[0] + 2 * storeStat[1] + 3 * storeStat[2] + 4 * storeStat[3]) / (storeStat[4]);
+            Console.WriteLine("Your Slugg Score is:{0}", calculateSlugg);
+        }
     }
-
-    public void slugPercent(double[] statArray)  //Function #2 function to calculate a player's slugging percentage
-    {
-        playerSlug[] = (statArray[0] + 2 * statArray[1] + 3 * statArray[2] + 4 * statArray[3]) / (statArray[4]);
-        Console.WriteLine(playerSlug[i]);
-    }
- }
+}
 
  
